@@ -7,6 +7,13 @@ MetarProvider 是一个用于格式化获取 METAR 数据并提供外部查询AP
 
 本项目提供了RESTful API接口与GRPC接口，用于获取 METAR 数据
 
+## Feature列表
+
+- [ ] 格式化获取METAR数据
+- [ ] 解析METAR数据
+- [ ] 格式化获取TAF数据
+- [ ] 解析TAF数据
+
 ## 快速开始
 
 1. 获取项目可执行文件

@@ -1,0 +1,60 @@
+# 全局配置
+global:
+  # 服务名称
+  name: metar-provider
+  # 配置文件版本
+  version: 1.0.0
+  # 日志配置
+  log:
+    # 日志级别
+    level: debug
+    # 日志文件路径
+    path: ./logs/logs.log
+    # 日志文件轮转
+    rotate: true
+    # 日志文件最大大小（MB）
+    max_size: 2
+    # 日志文件保存天数
+    max_age: 28
+    # 日志文件最大备份数
+    max_backups: 30
+    # 是否压缩日志文件
+    compress: true
+    # 是否使用本地时间而不是UTC时间
+    local_time: true
+
+# 服务配置
+server:
+  # http服务配置
+  http:
+    # 是否启动
+    enable: true
+    # 监听地址
+    host: 0.0.0.0
+    # 监听端口
+    port: 8080
+  # grpc服务配置
+  grpc:
+    # 是否启动
+    enable: true
+    # 监听地址
+    host: 0.0.0.0
+    # 监听端口
+    port: 8081
+
+# 数据源配置
+provider:
+  - # 类型
+    type: metar
+    # 名称
+    name: aviationweather
+    # 目标地址
+    target: https://www.aviationweather.gov/metar/data?ids=%s
+    # 解析器
+    parser: raw
+    # 选择器
+    selector: ""
+    # 是否翻转
+    reverse: false
+    # 是否多行
+    multiline: ""
