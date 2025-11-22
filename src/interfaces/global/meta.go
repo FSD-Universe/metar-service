@@ -19,8 +19,6 @@ const (
 	AppVersion    = "0.1.0"
 	ConfigVersion = "0.1.0"
 
-	SigningMethod = "HS512"
-
 	BeginYear = 2025
 
 	DefaultFilePermissions     = 0644
