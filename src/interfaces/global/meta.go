@@ -3,12 +3,14 @@ package global
 
 import (
 	"flag"
+	"time"
 )
 
 var (
-	NoLogs         = flag.Bool("no_logs", false, "Disable logging to file")
-	ConfigFilePath = flag.String("config", "./config.yaml", "Path to configuration file")
-	QueryThread    = flag.Int("thread", 16, "Number of query threads")
+	NoLogs             = flag.Bool("no_logs", false, "Disable logging to file")
+	ConfigFilePath     = flag.String("config", "./config.yaml", "Path to configuration file")
+	QueryThread        = flag.Int("thread", 16, "Number of query threads")
+	CacheCleanInterval = flag.Duration("cache_clean_interval", 30*time.Minute, "cache cleanup interval")
 )
 
 const (
@@ -24,7 +26,8 @@ const (
 
 	LogName = "MAIN"
 
-	EnvNoLogs         = "NO_LOGS"
-	EnvConfigFilePath = "CONFIG_FILE_PATH"
-	EnvQueryThread    = "QUERY_THREAD"
+	EnvNoLogs             = "NO_LOGS"
+	EnvConfigFilePath     = "CONFIG_FILE_PATH"
+	EnvQueryThread        = "QUERY_THREAD"
+	EnvCacheCleanInterval = "CACHE_CLEAN_INTERVAL"
 )

@@ -6,6 +6,7 @@ import (
 	"metar-provider/src/utils"
 	"os"
 	"strconv"
+	"time"
 )
 
 type Callable interface {
@@ -30,5 +31,12 @@ func CheckIntEnv(envKey string, target *int, defaultValue int) {
 	value := os.Getenv(envKey)
 	if value != "" {
 		*target = utils.StrToInt(value, defaultValue)
+	}
+}
+
+func CheckDurationEnv(envKey string, target *time.Duration) {
+	value := os.Getenv(envKey)
+	if duration, err := time.ParseDuration(value); err == nil {
+		*target = duration
 	}
 }

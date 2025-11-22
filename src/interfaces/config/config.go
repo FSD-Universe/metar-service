@@ -8,16 +8,16 @@ type Verifiable interface {
 }
 
 type Config struct {
-	GlobalConfig   *GlobalConfig     `yaml:"global"`
-	ServerConfig   *ServerConfig     `yaml:"server"`
-	ProviderConfig []*ProviderConfig `yaml:"provider"`
+	GlobalConfig    *GlobalConfig     `yaml:"global"`
+	ServerConfig    *ServerConfig     `yaml:"server"`
+	ProviderConfigs []*ProviderConfig `yaml:"provider"`
 }
 
 func NewConfig() *Config {
 	return &Config{
 		GlobalConfig: defaultGlobalConfig(),
 		ServerConfig: defaultServerConfig(),
-		ProviderConfig: []*ProviderConfig{
+		ProviderConfigs: []*ProviderConfig{
 			{
 				Type:      "metar",
 				Name:      "aviationweather",
@@ -44,10 +44,10 @@ func (c *Config) Verify() (bool, error) {
 	if ok, err := c.ServerConfig.Verify(); !ok {
 		return false, err
 	}
-	if c.ProviderConfig == nil {
+	if c.ProviderConfigs == nil {
 		return false, fmt.Errorf("provider config is nil")
 	}
-	for _, provider := range c.ProviderConfig {
+	for _, provider := range c.ProviderConfigs {
 		if ok, err := provider.Verify(); !ok {
 			return false, err
 		}
