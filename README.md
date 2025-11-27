@@ -1,8 +1,7 @@
 # MetarService
 
 [![ReleaseCard]][Release]![ReleaseDataCard]![LastCommitCard]  
-![BuildStateCard]![DockerStateCard]
-![ProjectLanguageCard]![ProjectLicense]
+![BuildStateCard]![DockerStateCard]![ProjectLicense]
 
 MetarService 是一个METAR数据服务，是微服务架构的一部分，用于获取METAR数据
 
@@ -144,19 +143,19 @@ Copyright © 2025 Half_nothing
 
 无附加条款。
 
-[ReleaseCard]: https://img.shields.io/github/v/release/FSD-Universe/metar-service?style=for-the-badge&logo=github
+[ReleaseCard]: https://img.shields.io/github/v/release/FSD-Universe/metar-service?logo=github&style=for-the-badge
 
-[ReleaseDataCard]: https://img.shields.io/github/release-date/FSD-Universe/metar-service?display_date=published_at&style=for-the-badge&logo=github
+[ReleaseDataCard]: https://img.shields.io/github/release-date/FSD-Universe/metar-service?display_date=published_at&logo=github&style=for-the-badge
 
-[LastCommitCard]: https://img.shields.io/github/last-commit/FSD-Universe/metar-service?display_timestamp=committer&style=for-the-badge&logo=github
+[LastCommitCard]: https://img.shields.io/github/last-commit/FSD-Universe/metar-service?display_timestamp=committer&logo=github&style=for-the-badge
 
-[BuildStateCard]: https://img.shields.io/github/actions/workflow/status/FSD-Universe/metar-service/go-build.yml?style=for-the-badge&logo=github&label=Build
+[BuildStateCard]: https://img.shields.io/github/actions/workflow/status/FSD-Universe/metar-service/go-build.yml?logo=go&label=Build&style=for-the-badge
 
-[DockerStateCard]: https://img.shields.io/github/actions/workflow/status/FSD-Universe/metar-service/push-latest.yml?style=for-the-badge&logo=docker&label=Push
+[DockerStateCard]: https://img.shields.io/github/actions/workflow/status/FSD-Universe/metar-service/push-latest.yml?logo=docker&label=Push&style=for-the-badge
 
-[ProjectLanguageCard]: https://img.shields.io/github/languages/top/FSD-Universe/metar-service?style=for-the-badge&logo=github
+[ProjectLanguageCard]: https://img.shields.io/github/languages/top/FSD-Universe/metar-service?logo=github&style=for-the-badge
 
-[ProjectLicense]: https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=github
+[ProjectLicense]: https://img.shields.io/badge/License-MIT-blue?logo=github&style=for-the-badge
 
 [Release]: https://www.github.com/FSD-Universe/metar-service/releases/latest
 

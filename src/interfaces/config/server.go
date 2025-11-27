@@ -1,17 +1,21 @@
 // Package config
 package config
 
-import "fmt"
+import (
+	"fmt"
+
+	"half-nothing.cn/service-core/interfaces/config"
+)
 
 type ServerConfig struct {
-	HttpServerConfig *HttpServerConfig `yaml:"http"`
-	GrpcServerConfig *GrpcServerConfig `yaml:"grpc"`
+	HttpServerConfig *config.HttpServerConfig `yaml:"http"`
+	GrpcServerConfig *config.GrpcServerConfig `yaml:"grpc"`
 }
 
 func (s *ServerConfig) InitDefaults() {
-	s.HttpServerConfig = &HttpServerConfig{}
+	s.HttpServerConfig = &config.HttpServerConfig{}
 	s.HttpServerConfig.InitDefaults()
-	s.GrpcServerConfig = &GrpcServerConfig{}
+	s.GrpcServerConfig = &config.GrpcServerConfig{}
 	s.GrpcServerConfig.InitDefaults()
 }
 

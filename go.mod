@@ -11,7 +11,7 @@ require (
 	golang.org/x/sync v0.18.0
 	google.golang.org/grpc v1.77.0
 	google.golang.org/protobuf v1.36.10
-	half-nothing.cn/service-core v1.1.3
+	half-nothing.cn/service-core v1.2.0
 )
 
 require (
