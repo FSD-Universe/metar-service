@@ -13,8 +13,8 @@ services:
       - "8080:8080"
     # 挂载卷列表
     volumes:
-      - ./logs:/metar-service/logs
-      - ./config.yaml:/metar-service/config.yaml
+      - ./logs:/service/logs
+      - ./config.yaml:/service/config.yaml
     # 重启模式
     restart: always
 

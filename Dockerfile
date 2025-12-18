@@ -17,7 +17,7 @@ FROM alpine:latest AS runtime
 
 RUN apk --no-cache add ca-certificates
 
-WORKDIR /metar-service
+WORKDIR /service
 
 COPY --from=builder /build/metar-service .
 
