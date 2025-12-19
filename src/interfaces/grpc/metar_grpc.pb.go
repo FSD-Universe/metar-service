@@ -22,8 +22,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Metar_GetMetar_FullMethodName = "/metar.Metar/GetMetar"
-	Metar_GetTaf_FullMethodName   = "/metar.Metar/GetTaf"
+	Metar_GetMetar_FullMethodName = "/fsd_universe.Metar/GetMetar"
+	Metar_GetTaf_FullMethodName   = "/fsd_universe.Metar/GetTaf"
 )
 
 // MetarClient is the client API for Metar service.
@@ -145,7 +145,7 @@ func _Metar_GetTaf_Handler(srv interface{}, ctx context.Context, dec func(interf
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Metar_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "metar.Metar",
+	ServiceName: "fsd_universe.Metar",
 	HandlerType: (*MetarServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

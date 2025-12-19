@@ -204,7 +204,7 @@ var File_metar_proto protoreflect.FileDescriptor
 
 const file_metar_proto_rawDesc = "" +
 	"\n" +
-	"\vmetar.proto\x12\x05metar\" \n" +
+	"\vmetar.proto\x12\ffsd_universe\" \n" +
 	"\n" +
 	"MetarQuery\x12\x12\n" +
 	"\x04icao\x18\x01 \x03(\tR\x04icao\"\"\n" +
@@ -214,10 +214,10 @@ const file_metar_proto_rawDesc = "" +
 	"\bTafQuery\x12\x12\n" +
 	"\x04icao\x18\x01 \x03(\tR\x04icao\"\x1c\n" +
 	"\bTafReply\x12\x10\n" +
-	"\x03taf\x18\x01 \x03(\tR\x03taf2e\n" +
-	"\x05Metar\x120\n" +
-	"\bGetMetar\x12\x11.metar.MetarQuery\x1a\x11.metar.MetarReply\x12*\n" +
-	"\x06GetTaf\x12\x0f.metar.TafQuery\x1a\x0f.metar.TafReplyB\x15Z\x13src/interfaces/grpcb\x06proto3"
+	"\x03taf\x18\x01 \x03(\tR\x03taf2\x81\x01\n" +
+	"\x05Metar\x12>\n" +
+	"\bGetMetar\x12\x18.fsd_universe.MetarQuery\x1a\x18.fsd_universe.MetarReply\x128\n" +
+	"\x06GetTaf\x12\x16.fsd_universe.TafQuery\x1a\x16.fsd_universe.TafReplyB\x15Z\x13src/interfaces/grpcb\x06proto3"
 
 var (
 	file_metar_proto_rawDescOnce sync.Once
@@ -233,16 +233,16 @@ func file_metar_proto_rawDescGZIP() []byte {
 
 var file_metar_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_metar_proto_goTypes = []any{
-	(*MetarQuery)(nil), // 0: metar.MetarQuery
-	(*MetarReply)(nil), // 1: metar.MetarReply
-	(*TafQuery)(nil),   // 2: metar.TafQuery
-	(*TafReply)(nil),   // 3: metar.TafReply
+	(*MetarQuery)(nil), // 0: fsd_universe.MetarQuery
+	(*MetarReply)(nil), // 1: fsd_universe.MetarReply
+	(*TafQuery)(nil),   // 2: fsd_universe.TafQuery
+	(*TafReply)(nil),   // 3: fsd_universe.TafReply
 }
 var file_metar_proto_depIdxs = []int32{
-	0, // 0: metar.Metar.GetMetar:input_type -> metar.MetarQuery
-	2, // 1: metar.Metar.GetTaf:input_type -> metar.TafQuery
-	1, // 2: metar.Metar.GetMetar:output_type -> metar.MetarReply
-	3, // 3: metar.Metar.GetTaf:output_type -> metar.TafReply
+	0, // 0: fsd_universe.Metar.GetMetar:input_type -> fsd_universe.MetarQuery
+	2, // 1: fsd_universe.Metar.GetTaf:input_type -> fsd_universe.TafQuery
+	1, // 2: fsd_universe.Metar.GetMetar:output_type -> fsd_universe.MetarReply
+	3, // 3: fsd_universe.Metar.GetTaf:output_type -> fsd_universe.TafReply
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
