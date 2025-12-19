@@ -55,6 +55,8 @@ func main() {
 	cl := cleaner.NewCleaner(lg)
 	cl.Init()
 
+	defer cl.Clean()
+
 	if applicationConfig.TelemetryConfig.Enable {
 		sdk := telemetry.NewSDK(lg, applicationConfig.TelemetryConfig)
 		shutdown, err := sdk.SetupOTelSDK(context.Background())
