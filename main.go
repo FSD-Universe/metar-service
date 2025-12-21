@@ -93,30 +93,44 @@ func main() {
 		tafManagerMemoryCache,
 	)
 
-	applicationContent := content.NewApplicationContentBuilder().
+	contentBuilder := content.NewApplicationContentBuilder().
 		SetConfigManager(configManager).
 		SetCleaner(cl).
 		SetLogger(lg).
 		SetMetarManager(metarManager).
-		SetTafManager(tafManager).
-		Build()
+		SetTafManager(tafManager)
 
-	go server.StartHttpServer(applicationContent)
-
-	if applicationConfig.ServerConfig.GrpcServerConfig.Enable {
-		started := make(chan bool)
-		initFunc := func(s *grpc.Server) {
-			grpcServer := grpcImpl.NewMetarServer(lg, metarManager, tafManager)
-			pb.RegisterMetarServer(s, grpcServer)
-		}
-		if applicationConfig.TelemetryConfig.Enable && applicationConfig.TelemetryConfig.GrpcServerTrace {
-			go grpcUtils.StartGrpcServerWithTrace(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
-		} else {
-			go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
-		}
-		go discovery.StartServiceDiscovery(lg, cl, started, utils.NewVersion(g.AppVersion),
-			"metar-service", applicationConfig.ServerConfig.GrpcServerConfig.Port)
+	started := make(chan bool)
+	initFunc := func(s *grpc.Server) {
+		grpcServer := grpcImpl.NewMetarServer(lg, metarManager, tafManager)
+		pb.RegisterMetarServer(s, grpcServer)
 	}
+	if applicationConfig.TelemetryConfig.Enable && applicationConfig.TelemetryConfig.GrpcServerTrace {
+		go grpcUtils.StartGrpcServerWithTrace(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+	} else {
+		go grpcUtils.StartGrpcServer(lg, cl, applicationConfig.ServerConfig.GrpcServerConfig, started, initFunc)
+	}
+
+	service := discovery.StartServiceDiscovery(
+		context.Background(),
+		lg,
+		cl,
+		started,
+		utils.NewVersion(g.AppVersion),
+		g.ServiceName,
+		applicationConfig.ServerConfig.GrpcServerConfig.Port,
+	)
+
+	go func() {
+		for {
+			select {
+			case <-service.StatusChannel():
+				continue
+			}
+		}
+	}()
+
+	go server.StartHttpServer(contentBuilder.Build())
 
 	cl.Wait()
 }

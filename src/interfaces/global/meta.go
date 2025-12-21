@@ -18,6 +18,8 @@ const (
 	AppVersion    = "0.3.1"
 	ConfigVersion = "0.4.0"
 
+	ServiceName = "metar-service"
+
 	EnvQueryThread        = "QUERY_THREAD"
 	EnvCacheCleanInterval = "CACHE_CLEAN_INTERVAL"
 )

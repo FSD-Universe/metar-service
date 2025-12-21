@@ -36,6 +36,8 @@ func StartHttpServer(content *content.ApplicationContent) {
 
 	metarController := controllerImpl.NewMetar(lg, serviceImpl.NewMetar(lg, content.MetarManager(), content.TafManager()))
 
+	h.SetHealthPoint(e)
+
 	apiGroup := e.Group("/api/v1")
 	apiGroup.GET("/metar", metarController.QueryMetar)
 	apiGroup.GET("/taf", metarController.QueryTaf)
